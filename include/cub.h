@@ -6,12 +6,22 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <math.h>
+# include <string.h>
 # include "color.h"
+# include "../libft/libft.h"
 
-typedef struct s_cud {
+typedef struct s_cub {
+	int			ceil;
+	int			floor;
+	char		*north;
+	char		*south;
+	char		*west;
+	char		*east;
+	char		**map;
+} t_cub;
 
-} t_cud;
-
-void	read_file(char *s);
+int		check_file(char *s);
+void	verify_file(char *file, t_cub *cub);
+void	init_cub(t_cub *cub);
 
 #endif

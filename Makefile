@@ -7,6 +7,10 @@ SRCS_DIR := ./srcs
 SRCS := $(shell find $(SRCS_DIR) -name '*.c')
 HEADER_I := -I$(SRCS_DIR)
 
+LIBFT_DIR := ./libft
+LIBFT := $(LIBFT_DIR)/libft.a
+LIB_I := -I$(LIBFT_DIR)
+
 all: $(NAME)
 
 $(NAME): $(SRCS) $(LIBFT)
@@ -22,7 +26,7 @@ norm:
 	@echo "---- THANK YOU ^w^Y ----"
 
 clean:
-# @make fclean -C ./libft
+	@make fclean -C ./libft
 	@rm -rf *.dSYM *.o $(NAME)
 
 fclean: clean
