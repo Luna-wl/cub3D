@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:55:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/09/20 17:18:37 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/09/24 15:35:13 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	check_file(char *s)
 	file = ft_strrchr(s, '.');
 	if (ft_strncmp(file, ".cub", 5))
 	{
-		perror("Error wrong file name");
+		perror("Error\n wrong file name");
 		return (0);
 	}
 	return (1);
@@ -33,7 +33,7 @@ int	check_row(char *s)
 
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
-		printf(RED"Poet mai dai!!! (ಥ﹏ಥ)\n"RESET);
+		perror(RED"Error\nPoet mai dai!!! (ಥ﹏ಥ)\n"RESET);
 	line = get_next_line(fd);
 	row = 1;
 	while (line)
@@ -47,7 +47,7 @@ int	check_row(char *s)
 	return (row);
 }
 
-char	***get_file(char *s, char ***file)
+void	get_file(char *s, t_cub *cub)
 {
 	int		fd;
 	int		i;
@@ -56,22 +56,23 @@ char	***get_file(char *s, char ***file)
 
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
-		perror(RED"Open mai dai!!! (ಥ﹏ಥ)\n");
+		perror(RED"Error\nOpen mai dai!!! (ಥ﹏ಥ)\n");
 	row = check_row(s);
 	data = malloc(sizeof(char *) * (row + 1));
 	if (!data)
-		return (0);
+		return ;
 	i = 0;
 	data[i] = get_next_line(fd);
 	while (++i < row)
 		data[i] = get_next_line(fd);
 	close(fd);
-	file = split_data(data, file, row);
-	del_split(data);
-	return (file);
+	cub->data = to3stars(data, cub->data, row);
+	// get_map(data, cub->map, row);
+	del_2stars(data);
 }
 
 void	verify_file(char *file, t_cub *cub)
 {
-
+	get_file(file, cub);
+	get_data(cub->data, cub);
 }

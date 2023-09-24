@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:33:50 by wluedara          #+#    #+#             */
-/*   Updated: 2023/09/20 16:53:42 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/09/22 17:23:50 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		printf("Error cuz u put wrong num argument\n");
+		printf("Error\n cuz u put wrong num argument\n");
 		return(0);
 	}
 	if (!check_file(av[1]))
