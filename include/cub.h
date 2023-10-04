@@ -11,10 +11,16 @@
 # include "../libft/libft.h"
 # include "../libft/get_next_line_bonus.h"
 
+typedef struct s_color {
+	int	r;
+	int	g;
+	int	b;
+}	t_color;
+
 typedef struct s_cub {
 	char		***data;
-	int			ceil;
-	int			floor;
+	t_color		*ceil;
+	t_color		*floor;
 	char		*north;
 	char		*south;
 	char		*west;
@@ -49,6 +55,6 @@ int		f_count_letter(char *s);
 char	*f_my_split(char *s);
 char	**fah_split(char *s);
 // map
-void	get_map(char **data, char **map, int r);
+void	get_map(char **data, t_cub *cub, int r);
 
 #endif

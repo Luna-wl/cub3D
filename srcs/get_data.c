@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/09/24 15:29:34 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/04 16:40:02 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,13 @@ int	check_digit(char *s)
 	return (1);
 }
 
+void	add_rgb(t_color *color, int r, int g, int b)
+{
+	color->r = r;
+	color->g = g;
+	color->b = b;
+}
+
 void	get_color(char **s, t_cub *cub, int mode)
 {
 	char	**c;
@@ -72,9 +79,9 @@ void	get_color(char **s, t_cub *cub, int mode)
 		exit(0);
 	}
 	if (mode == 1)
-		cub->floor = color_to_int(r, g, b);
+		add_rgb(cub->ceil, r, g, b);
 	else
-		cub->ceil = color_to_int(r, g, b);
+		add_rgb(cub->floor, r, g, b);
 }
 
 void	get_data(char ***data, t_cub *cub)

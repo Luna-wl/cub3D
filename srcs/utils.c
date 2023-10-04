@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:38:44 by wluedara          #+#    #+#             */
-/*   Updated: 2023/09/24 15:28:27 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/04 21:56:52 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ char	*fah_strdup(char *s, char c)
 			str[i] = s[i];
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }
