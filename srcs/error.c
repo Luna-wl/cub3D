@@ -6,16 +6,16 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:44:31 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 21:30:55 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 01:40:24 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-int	check_data(char **data, t_cub *cub, int r)
-{
-	get_map(data, cub, r);
-}
+// int	check_data(char **data, t_cub *cub, int r)
+// {
+// 	get_map(data, cub, r);
+// }
 
 void	error_false(t_cub *cub, char *s)
 {

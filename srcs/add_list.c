@@ -6,16 +6,16 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:42:33 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 21:49:30 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 01:39:50 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-t_file	*insert2list(char **str, t_file *file, int r)
-{
-	int	i;
+// t_file	*insert2list(char **str, t_file *file, int r)
+// {
+// 	int	i;
 
-	i = -1;
-	w
-}
+// 	i = -1;
+// 	w
+// }
