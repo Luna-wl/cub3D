@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/04 16:40:02 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/15 16:43:01 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*get_pic(char **s, char *cub)
 {
+
 	if (s[2] != NULL)
 	{
 		printf("Error\n cuz u put wrong num argu in direction\n");

@@ -1,26 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   check_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 16:50:53 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 21:34:47 by wluedara         ###   ########.fr       */
+/*   Created: 2023/10/15 15:04:48 by wluedara          #+#    #+#             */
+/*   Updated: 2023/10/15 16:31:45 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-void	init_cub(t_cub *cub)
+int	check_wall(char *map)
 {
-	cub->file = NULL;
-	cub->data = NULL;
-	cub->north = NULL;
-	cub->south = NULL;
-	cub->west = NULL;
-	cub->east = NULL;
-	cub->map = NULL;
-	cub->ceil = malloc(sizeof(t_color));
-	cub->floor = malloc(sizeof(t_color));
+	int	i;
+
+	i = 0;
+	while (is_space(map[i]))
+		i++;
+	
+	return (1);
+}
+
+void	check_map(t_cub *cub)
+{
+	int	i;
+
+	i = -1;
+	while (cub->map[++i])
+	{
+
+	}
 }

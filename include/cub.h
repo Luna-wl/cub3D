@@ -17,7 +17,13 @@ typedef struct s_color {
 	int	b;
 }	t_color;
 
+typedef struct s_file {
+	char			*file;
+	struct s_file	*next;
+}	t_file;
+
 typedef struct s_cub {
+	t_file		*file;
 	char		***data;
 	t_color		*ceil;
 	t_color		*floor;
@@ -47,8 +53,6 @@ int		is_space(char c);
 // get_data
 void	get_data(char ***data, t_cub *cub);
 char	*get_pic(char **s, char *cub);
-// color
-int		color_to_int(int r, int g, int b);
 // fah split
 int		f_check_word(char *s);
 int		f_count_letter(char *s);
@@ -56,5 +60,11 @@ char	*f_my_split(char *s);
 char	**fah_split(char *s);
 // map
 void	get_map(char **data, t_cub *cub, int r);
+void	check_map(t_cub *cub);
+// error
+void	error_false(t_cub *cub, char *s);
+int	check_data(char **data, t_cub *cub, int r);
+
+t_file	*insert2list(char **str, t_file *file, int r);
 
 #endif

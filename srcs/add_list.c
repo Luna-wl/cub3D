@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   add_list.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 16:50:53 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 21:34:47 by wluedara         ###   ########.fr       */
+/*   Created: 2023/10/15 21:42:33 by wluedara          #+#    #+#             */
+/*   Updated: 2023/10/15 21:49:30 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-void	init_cub(t_cub *cub)
+t_file	*insert2list(char **str, t_file *file, int r)
 {
-	cub->file = NULL;
-	cub->data = NULL;
-	cub->north = NULL;
-	cub->south = NULL;
-	cub->west = NULL;
-	cub->east = NULL;
-	cub->map = NULL;
-	cub->ceil = malloc(sizeof(t_color));
-	cub->floor = malloc(sizeof(t_color));
+	int	i;
+
+	i = -1;
+	w
 }
