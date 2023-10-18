@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:55:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 01:40:37 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:50:29 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,15 @@ void	get_file(char *s, t_cub *cub)
 	while (++i < row)
 		data[i] = get_next_line(fd);
 	close(fd);
-	cub->data = to3stars(data, cub->data, row);
-	// insert2list(data, cub->file, row);
-	get_map(data, cub, row);
+	cub->file = insert2list(data, cub->file);
 	del_2stars(data);
 }
 
 void	verify_file(char *file, t_cub *cub)
 {
 	get_file(file, cub);
-	check_map(cub);
-	get_data(cub->data, cub);
-	print_2stars(cub->map);
+	// chek_data(cub);
+	// get_data(cub->data, cub);
+	// print_2stars(cub->map);
+	// print_list(cub->file);
 }

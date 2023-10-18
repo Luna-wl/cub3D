@@ -22,8 +22,18 @@ typedef struct s_file {
 	struct s_file	*next;
 }	t_file;
 
+typedef struct s_value {
+	int	n;
+	int	s;
+	int	e;
+	int	w;
+	int	c;
+	int	f;
+}	t_value;
+
 typedef struct s_cub {
 	t_file		*file;
+	t_value		*value;
 	char		***data;
 	t_color		*ceil;
 	t_color		*floor;
@@ -50,6 +60,7 @@ char	*fah_strdup(char *s, char c);
 char	***to3stars(char **s, char ***data, int row);
 int		check_null(char **s, int row);
 int		is_space(char c);
+void	print_list(t_file *file);
 // get_data
 void	get_data(char ***data, t_cub *cub);
 char	*get_pic(char **s, char *cub);
@@ -63,8 +74,11 @@ void	get_map(char **data, t_cub *cub, int r);
 void	check_map(t_cub *cub);
 // error
 void	error_false(t_cub *cub, char *s);
-int	check_data(char **data, t_cub *cub, int r);
-
-t_file	*insert2list(char **str, t_file *file, int r);
+void	del_list(t_file **file);
+// int		check_data(char **data, t_cub *cub, int r);
+// addlist
+t_file	*insert2list(char **str, t_file *file);
+void	init_list(t_file **file, char *s);
+void	add_last(t_file **file, t_file *last);
 
 #endif

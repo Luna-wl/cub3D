@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:57:12 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/04 22:03:05 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:09:35 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ void	get_map(char **data, t_cub *cub, int r)
 	i = 0;
 	while (i < r - 1)
 	{
-		if (data[i][0] == 'N' || data[i][0] == 'S' || \
-		data[i][0] == 'W' || data[i][0] == 'E' || data[i][0] == 'F' || \
-		data[i][0] == 'C' || data[i][0] == '\n')
+		if (ft_isalpha(data[i][0]) || data[i][0] == '\n')
 			i++;
 		else
 			break;

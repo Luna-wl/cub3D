@@ -6,16 +6,46 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:42:33 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 01:39:50 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:22:55 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
-// t_file	*insert2list(char **str, t_file *file, int r)
-// {
-// 	int	i;
+void	add_last(t_file **file, t_file *last)
+{
+	t_file	*tmp;
 
-// 	i = -1;
-// 	w
-// }
+	if (*file == NULL)
+	{
+		*file = last;
+		return ;
+	}
+	tmp = *file;
+	while (tmp->next != NULL)
+		tmp = tmp->next;
+	tmp->next = last;
+}
+
+void	init_list(t_file **file, char *s)
+{
+	t_file	*hua;
+
+	hua = malloc(sizeof(t_file));
+	hua->file = fah_strdup(s, '\n');
+	hua->next = NULL;
+	add_last(file, hua);
+}
+
+t_file	*insert2list(char **str, t_file *file)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		init_list(&file, str[i]);
+		i++;
+	}
+	return (file);
+}

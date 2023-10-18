@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:09:05 by wluedara          #+#    #+#             */
-/*   Updated: 2023/09/24 14:04:48 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 13:56:02 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,19 @@ char	***to3stars(char **s, char ***data, int row)
 	}
 	data[j] = NULL;
 	return (data);
+}
+
+void	print_list(t_file *file)
+{
+	t_file	*tmp;
+	int		i;
+
+	tmp = file;
+	i = 0;
+	while (tmp != NULL)
+	{
+		printf("tmp->file[%d] = %s\n", i, tmp->file);
+		tmp = tmp->next;
+		i++;
+	}
 }

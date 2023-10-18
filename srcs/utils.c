@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:38:44 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/04 21:56:52 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 15:00:05 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ void	del_2stars(char **s)
 		free(s[i]);
 		i++;
 	}
+	if (s)
+		free(s);
 }
 
 void	del_3stars(char ***s)
@@ -79,14 +81,14 @@ char	*fah_strdup(char *s, char c)
 	int		len;
 	char	*str;
 
-	i = 0;
-	len = ft_strlen(s) - 1;
-	str = malloc(sizeof(char) * len + 1);
+	len = ft_strlen(s);
+	str = malloc(len);
 	if (!str)
 		return (0);
-	while (i < len)
+	i = 0;
+	while (i < len - 1)
 	{
-		if (str[i] != c)
+		if (s[i] != c)
 			str[i] = s[i];
 		i++;
 	}

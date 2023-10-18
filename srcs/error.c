@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:44:31 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 01:40:24 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:57:30 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,25 @@
 // {
 // 	get_map(data, cub, r);
 // }
+
+void	del_list(t_file **file)
+{
+	t_file	*tmp;
+	t_file	*del;
+
+	if (!file)
+		return ;
+	del = *file;
+	while (del != NULL)
+	{
+		tmp = del->next;
+		if (del->file != NULL)
+			free(del->file);
+		free(del);
+		del = tmp;
+	}
+	*file = NULL;
+}
 
 void	error_false(t_cub *cub, char *s)
 {

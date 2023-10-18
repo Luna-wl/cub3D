@@ -6,15 +6,27 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:50:53 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 21:34:47 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/18 14:50:07 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub.h"
 
+void	int_val(t_value *value)
+{
+	value->n = 0;
+	value->s = 0;
+	value->w = 0;
+	value->e = 0;
+	value->c = 0;
+	value->f = 0;
+}
+
 void	init_cub(t_cub *cub)
 {
 	cub->file = NULL;
+	cub->value = malloc(sizeof(t_value));
+	int_val(cub->value);
 	cub->data = NULL;
 	cub->north = NULL;
 	cub->south = NULL;
