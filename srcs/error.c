@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:44:31 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 15:02:26 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:20:35 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	free_everyth(t_cub *cub)
 {
 	del_list(&cub->file);
 	free(cub->value);
-	if (cub->data)
-		del_3stars(cub->data);
 	if (cub->north)
 		free(cub->north);
 	if (cub->south)

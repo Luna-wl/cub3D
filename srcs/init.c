@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:50:53 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/19 01:36:11 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:16:55 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	init_cub(t_cub *cub)
 	cub->file = NULL;
 	cub->value = malloc(sizeof(t_value));
 	int_val(cub->value);
-	cub->data = NULL;
 	cub->north = NULL;
 	cub->south = NULL;
 	cub->west = NULL;

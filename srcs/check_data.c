@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:06:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/19 15:12:01 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:20:00 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ int	check_path(char *s)
 	if (fd == -1)
 		return (0);
 	close(fd);
-	printf("fd = %d\n", fd);
 	return (1);
 }
 
@@ -34,17 +33,17 @@ void	check_data2(t_cub *cub, char *str)
 	ft_strncmp(s[0], "F", 2) && ft_strncmp(s[0], "C", 2) && s[0][0] != '1' \
 	&& s[0][0] != '0')
 		cub->value->error++;
-	if (s[0] && !ft_strncmp(s[0], "NO", 3) && s[1] && !check_path(s[1]))
+	if (s[0] && !ft_strncmp(s[0], "NO", 3) && s[1] && lenght_2star(s) == 2)
 		cub->value->n++;
-	else if (s[0] && !ft_strncmp(s[0], "SO", 3) && s[1] && !check_path(s[1]))
+	else if (s[0] && !ft_strncmp(s[0], "SO", 3) && s[1] && lenght_2star(s) == 2)
 		cub->value->s++;
-	else if (s[0] && !ft_strncmp(s[0], "WE", 3) && s[1] && !check_path(s[1]))
+	else if (s[0] && !ft_strncmp(s[0], "WE", 3) && s[1] && lenght_2star(s) == 2)
 		cub->value->w++;
-	else if (s[0] && !ft_strncmp(s[0], "EA", 3) && s[1] && !check_path(s[1]))
+	else if (s[0] && !ft_strncmp(s[0], "EA", 3) && s[1] && lenght_2star(s) == 2)
 		cub->value->e++;
-	else if (s[0] && !ft_strncmp(s[0], "F", 2) && s[1] && !check_path(s[1]))
+	else if (s[0] && !ft_strncmp(s[0], "F", 2) && s[1] && lenght_2star(s) == 2)
 		cub->value->f++;
-	else if (s[0] && !ft_strncmp(s[0], "C", 2) && s[1] && !check_path(s[1]))
+	else if (s[0] && !ft_strncmp(s[0], "C", 2) && s[1] && lenght_2star(s) == 2)
 		cub->value->c++;
 	del_2stars(s);
 }

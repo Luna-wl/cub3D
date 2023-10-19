@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:09:05 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/19 13:53:06 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:19:32 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,28 @@ int	check_null(char **s, int row)
 	return (i - j);
 }
 
-char	***to3stars(char **s, char ***data, int row)
-{
-	int	i;
-	int	j;
-	int	row2;
+// char	***to3stars(char **s, char ***data, int row)
+// {
+// 	int	i;
+// 	int	j;
+// 	int	row2;
 
-	i = 0;
-	j = 0;
-	row2 = check_null(s, row);
-	data = malloc(sizeof(char **) * (row2 + 1));
-	if (!data)
-		return (0);
-	while (s[i] && i <= row)
-	{
-		if (is_space(s[i][0]) || s[i][0] == '#')
-			i++;
-		else
-			data[j++] = fah_split(s[i++]);
-	}
-	data[j] = NULL;
-	return (data);
-}
+// 	i = 0;
+// 	j = 0;
+// 	row2 = check_null(s, row);
+// 	data = malloc(sizeof(char **) * (row2 + 1));
+// 	if (!data)
+// 		return (0);
+// 	while (s[i] && i <= row)
+// 	{
+// 		if (is_space(s[i][0]) || s[i][0] == '#')
+// 			i++;
+// 		else
+// 			data[j++] = fah_split(s[i++]);
+// 	}
+// 	data[j] = NULL;
+// 	return (data);
+// }
 
 void	print_list(t_file *file)
 {
@@ -71,4 +71,14 @@ void	print_list(t_file *file)
 		tmp = tmp->next;
 		i++;
 	}
+}
+
+int	lenght_2star(char **s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

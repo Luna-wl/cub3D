@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 13:38:44 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 15:00:05 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 00:20:10 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ void	print_2stars(char **s)
 	}
 }
 
-void	print_3stars(char ***s)
-{
-	int	i;
-	int	j;
+// void	print_3stars(char ***s)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (s[i])
-	{
-		printf("==== i = |%d| =====\n", i);
-		j = 0;
-		while (s[i][j] != NULL)
-		{
-			printf("s[%d] = |%s|\n", j, s[i][j]);
-			j++;
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (s[i])
+// 	{
+// 		printf("==== i = |%d| =====\n", i);
+// 		j = 0;
+// 		while (s[i][j] != NULL)
+// 		{
+// 			printf("s[%d] = |%s|\n", j, s[i][j]);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
 
 void	del_2stars(char **s)
 {
@@ -57,23 +57,23 @@ void	del_2stars(char **s)
 		free(s);
 }
 
-void	del_3stars(char ***s)
-{
-	int	i;
-	int	j;
+// void	del_3stars(char ***s)
+// {
+// 	int	i;
+// 	int	j;
 
-	i = 0;
-	while (s[i] != NULL)
-	{
-		j = 0;
-		while (s[i][j] != NULL)
-		{
-			free(s[i][j]);
-			j++;
-		}
-		i++;
-	}
-}
+// 	i = 0;
+// 	while (s[i] != NULL)
+// 	{
+// 		j = 0;
+// 		while (s[i][j] != NULL)
+// 		{
+// 			free(s[i][j]);
+// 			j++;
+// 		}
+// 		i++;
+// 	}
+// }
 
 char	*fah_strdup(char *s, char c)
 {
@@ -94,4 +94,18 @@ char	*fah_strdup(char *s, char c)
 	}
 	str[i] = '\0';
 	return (str);
+}
+
+void	print_data(t_cub *cub)
+{
+	printf("north = %s\n", cub->north);
+	printf("south = %s\n", cub->south);
+	printf("west = %s\n", cub->west);
+	printf("east = %s\n", cub->east);
+	printf("floor->r = %d\n", cub->floor->r);
+	printf("floor->g = %d\n", cub->floor->g);
+	printf("floor->b = %d\n", cub->floor->b);
+	printf("ceil->r = %d\n", cub->ceil->r);
+	printf("ceil->g = %d\n", cub->ceil->g);
+	printf("ceil->b = %d\n", cub->ceil->b);
 }
