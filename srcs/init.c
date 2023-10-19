@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 16:50:53 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 14:50:07 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/19 01:36:11 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	int_val(t_value *value)
 	value->e = 0;
 	value->c = 0;
 	value->f = 0;
+	value->error = 0;
 }
 
 void	init_cub(t_cub *cub)

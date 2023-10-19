@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:55:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 14:50:29 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:49:59 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ void	get_file(char *s, t_cub *cub)
 void	verify_file(char *file, t_cub *cub)
 {
 	get_file(file, cub);
-	// chek_data(cub);
-	// get_data(cub->data, cub);
+	check_data(cub);
+	// get_data(cub);
 	// print_2stars(cub->map);
 	// print_list(cub->file);
 }

@@ -29,6 +29,7 @@ typedef struct s_value {
 	int	w;
 	int	c;
 	int	f;
+	int	error;
 }	t_value;
 
 typedef struct s_cub {
@@ -62,7 +63,7 @@ int		check_null(char **s, int row);
 int		is_space(char c);
 void	print_list(t_file *file);
 // get_data
-void	get_data(char ***data, t_cub *cub);
+void	get_data(t_cub *cub);
 char	*get_pic(char **s, char *cub);
 // fah split
 int		f_check_word(char *s);
@@ -71,14 +72,16 @@ char	*f_my_split(char *s);
 char	**fah_split(char *s);
 // map
 void	get_map(char **data, t_cub *cub, int r);
-void	check_map(t_cub *cub);
+// void	check_map(t_cub *cub);
 // error
 void	error_false(t_cub *cub, char *s);
 void	del_list(t_file **file);
-// int		check_data(char **data, t_cub *cub, int r);
+void	free_everyth(t_cub *cub);
 // addlist
 t_file	*insert2list(char **str, t_file *file);
 void	init_list(t_file **file, char *s);
 void	add_last(t_file **file, t_file *last);
+// check data
+void	check_data(t_cub *cub);
 
 #endif

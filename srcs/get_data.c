@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/15 16:43:01 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/19 14:50:16 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 char	*get_pic(char **s, char *cub)
 {
-
 	if (s[2] != NULL)
 	{
 		printf("Error\n cuz u put wrong num argu in direction\n");
@@ -85,25 +84,22 @@ void	get_color(char **s, t_cub *cub, int mode)
 		add_rgb(cub->floor, r, g, b);
 }
 
-void	get_data(char ***data, t_cub *cub)
+void	get_data(t_cub *cub)
 {
-	int	i;
-
-	i = -1;
-	while (data[++i])
-	{
-		if (!ft_strncmp(data[i][0], "NO", 3))
-			cub->north = get_pic(data[i], cub->north);
-		else if (!ft_strncmp(data[i][0], "SO", 3))
-			cub->south = get_pic(data[i], cub->south);
-		else if (!ft_strncmp(data[i][0], "WE", 3))
-			cub->west = get_pic(data[i], cub->west);
-		else if (!ft_strncmp(data[i][0], "EA", 3))
-			cub->east = get_pic(data[i], cub->east);
-		else if (!ft_strncmp(data[i][0], "F", 2))
-			get_color(data[i], cub, 1);
-		else if (!ft_strncmp(data[i][0], "C", 2))
-			get_color(data[i], cub, 2);
-	}
-	del_3stars(data);
+	// t_file	*tmp;
+	// int		i;
+	(void)cub;
+	// i = -1;
+	// tmp = cub->file;
+	// while (tmp != NULL)
+	// {
+	// 	if (!ft_strncmp(tmp->file, "NO", 3))
+	// 	// else if (!ft_strncmp(cub->file->file, "SO", 3))
+	// 	// else if (!ft_strncmp(cub->file->file, "WE", 3))
+	// 	// else if (!ft_strncmp(cub->file->file, "EA", 3))
+	// 	// else if (!ft_strncmp(cub->file->file, "F", 2))
+	// 	// else if (!ft_strncmp(cub->file->file, "C", 2))
+	// 	tmp = tmp->file;
+	// }
+	// del_3stars(data);
 }
