@@ -19,6 +19,7 @@ typedef struct s_color {
 
 typedef struct s_file {
 	char			*file;
+	int				index;
 	struct s_file	*next;
 }	t_file;
 
@@ -59,6 +60,7 @@ int		check_null(char **s, int row);
 int		is_space(char c);
 void	print_list(t_file *file);
 int		lenght_2star(char **s);
+void	del1node(t_file **file, int i);
 // get_data
 void	get_data(t_cub *cub);
 char	*get_pic(char *s, t_cub *cub, char *pic);
@@ -68,19 +70,18 @@ int		f_count_letter(char *s);
 char	*f_my_split(char *s);
 char	**fah_split(char *s);
 // map
-void	get_map(char **data, t_cub *cub, int r);
-// void	check_map(t_cub *cub);
+// void	get_map(char **str);
 // error
 void	error_false(t_cub *cub, char *s);
 void	del_list(t_file **file);
 void	free_everyth(t_cub *cub);
 // addlist
 t_file	*insert2list(char *str, t_file *file);
-void	init_list(t_file **file, char *s);
 void	add_last(t_file **file, t_file *last);
 // check data
 void	check_data(t_cub *cub);
 int		check_path(char *s);
 void	get_color(char *s, t_cub *cub, int mode);
+void	check_data2(t_cub *cub, char *str);
 
 #endif

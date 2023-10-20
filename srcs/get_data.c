@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 00:09:38 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 01:30:46 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,28 +81,44 @@ void	get_color(char *s, t_cub *cub, int mode)
 		add_rgb(cub->floor, r, g, b);
 }
 
+void	del_list2(t_file *cub, int i)
+{
+	printf("i = %d\n", i);
+	while (i > 0)
+	{
+		del1node(&cub, i);
+		i--;
+	}
+	print_list(cub);
+}
+
 void	get_data(t_cub *cub)
 {
-	t_file	*tmp;
-	char	**str;
+	t_file		*tmp;
+	char		**str;
+	static int	i = 0;
 
 	tmp = cub->file;
+	// print_list(cub->file);
+	// printf("=====\n");
 	while (tmp != NULL)
 	{
 		str = fah_split(tmp->file);
-		if (!ft_strncmp(str[0], "NO", 3))
+		// if ((str[0][0] == '0' || str[0][0] == '1') && tmp)
+		if (!ft_strncmp(str[0], "NO", 3) && str[1])
 			cub->north = get_pic(str[1], cub, cub->north);
-		else if (!ft_strncmp(str[0], "SO", 3))
+		else if (!ft_strncmp(str[0], "SO", 3) && str[1])
 			cub->south = get_pic(str[1], cub, cub->south);
-		else if (!ft_strncmp(str[0], "WE", 3))
+		else if (!ft_strncmp(str[0], "WE", 3) && str[1])
 			cub->west = get_pic(str[1], cub, cub->west);
-		else if (!ft_strncmp(str[0], "EA", 3))
+		else if (!ft_strncmp(str[0], "EA", 3) && str[1])
 			cub->east = get_pic(str[1], cub, cub->east);
-		else if (!ft_strncmp(str[0], "F", 2))
+		else if (!ft_strncmp(str[0], "F", 2) && str[1])
 			get_color(str[1], cub, 0);
-		else if (!ft_strncmp(str[0], "C", 2))
-			get_color(str[1], cub, 1);
+		else if (!ft_strncmp(str[0], "C", 2) && str[1])
+			return (get_color(str[1], cub, 1), del_2stars(str), del_list2(cub->file, i));
 		del_2stars(str);
 		tmp = tmp->next;
+		i++;
 	}
 }

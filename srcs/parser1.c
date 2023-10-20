@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:55:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 00:18:57 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/20 21:53:38 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,10 @@ void	get_file(char *s, t_cub *cub)
 void	verify_file(char *file, t_cub *cub)
 {
 	get_file(file, cub);
-	// check_data(cub);
-	print_list(cub->file);
-	// get_data(cub);
+	// print_list(cub->file);
+	check_data(cub);
+	// printf("error\n");
+	// get_map(cub);
+	get_data(cub);
 	// print_data(cub);
 }

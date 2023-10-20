@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:09:05 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 00:19:32 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 01:48:31 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,41 +35,15 @@ int	check_null(char **s, int row)
 	return (i - j);
 }
 
-// char	***to3stars(char **s, char ***data, int row)
-// {
-// 	int	i;
-// 	int	j;
-// 	int	row2;
-
-// 	i = 0;
-// 	j = 0;
-// 	row2 = check_null(s, row);
-// 	data = malloc(sizeof(char **) * (row2 + 1));
-// 	if (!data)
-// 		return (0);
-// 	while (s[i] && i <= row)
-// 	{
-// 		if (is_space(s[i][0]) || s[i][0] == '#')
-// 			i++;
-// 		else
-// 			data[j++] = fah_split(s[i++]);
-// 	}
-// 	data[j] = NULL;
-// 	return (data);
-// }
-
 void	print_list(t_file *file)
 {
 	t_file	*tmp;
-	int		i;
 
 	tmp = file;
-	i = 0;
 	while (tmp != NULL)
 	{
-		printf("tmp->file[%d] = %s\n", i, tmp->file);
+		printf("tmp->file[%d] = %s\n", tmp->index, tmp->file);
 		tmp = tmp->next;
-		i++;
 	}
 }
 
@@ -81,4 +55,27 @@ int	lenght_2star(char **s)
 	while (s[i])
 		i++;
 	return (i);
+}
+
+void	del1node(t_file **file, int i)
+{
+	t_file	*tmp;
+	t_file	*last;
+	t_file	*del;
+
+	tmp = *file;
+	last = NULL;
+	del = NULL;
+	while (tmp != NULL)
+	{
+		if (tmp->index == i)
+		{
+			del = tmp;
+			last = tmp->next;
+			break ;
+		}
+		tmp = tmp->next;
+	}
+	free(del);
+	tmp->next = last;
 }

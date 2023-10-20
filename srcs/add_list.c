@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 21:42:33 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 00:14:51 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 01:27:33 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,33 +27,21 @@ void	add_last(t_file **file, t_file *last)
 	tmp->next = last;
 }
 
-void	init_list(t_file **file, char *s)
-{
-	t_file	*hua;
-
-	hua = malloc(sizeof(t_file));
-	hua->file = fah_strdup(s, '\n');
-	hua->next = NULL;
-	add_last(file, hua);
-}
-
 t_file	*insert2list(char *str, t_file *file)
 {
+	t_file		*hua;
+	static int	i = 0;
+
+	if (str[0] == '\n')
+		i--;
 	if (str[0] != '\n')
-		init_list(&file, str);
+	{
+		hua = malloc(sizeof(t_file));
+		hua->file = fah_strdup(str, '\n');
+		hua->index = i;
+		hua->next = NULL;
+		add_last(&file, hua);
+	}
+	i++;
 	return (file);
 }
-
-// t_file	*insert2list(char **str, t_file *file)
-// {
-// 	int	i;
-
-// 	i = 0;
-// 	while (str[i])
-// 	{
-// 		if (str[i][0] != '\n')
-// 			init_list(&file, str[i]);
-// 		i++;
-// 	}
-// 	return (file);
-// }
