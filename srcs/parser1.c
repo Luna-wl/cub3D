@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:55:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 21:53:38 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 01:56:50 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,12 @@ int	check_file(char *s)
 void	get_file(char *s, t_cub *cub)
 {
 	int		fd;
-	int		i;
 	char	*line;
 
 	fd = open(s, O_RDONLY);
 	if (fd < 0)
 		perror(RED"Error\nOpen mai dai!!! (ಥ﹏ಥ)\n");
 	line = get_next_line(fd);
-	i = 1;
 	while (line)
 	{
 		cub->file = insert2list(line, cub->file);

@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/21 01:30:46 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 02:04:50 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,11 +83,13 @@ void	get_color(char *s, t_cub *cub, int mode)
 
 void	del_list2(t_file *cub, int i)
 {
-	printf("i = %d\n", i);
-	while (i > 0)
+	int	j;
+
+	j = 0;
+	while (j < i)
 	{
-		del1node(&cub, i);
-		i--;
+		del1node(&cub);
+		j++;
 	}
 	print_list(cub);
 }
@@ -116,7 +118,7 @@ void	get_data(t_cub *cub)
 		else if (!ft_strncmp(str[0], "F", 2) && str[1])
 			get_color(str[1], cub, 0);
 		else if (!ft_strncmp(str[0], "C", 2) && str[1])
-			return (get_color(str[1], cub, 1), del_2stars(str), del_list2(cub->file, i));
+			return (get_color(str[1], cub, 1), del_2stars(str));
 		del_2stars(str);
 		tmp = tmp->next;
 		i++;

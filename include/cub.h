@@ -60,7 +60,7 @@ int		check_null(char **s, int row);
 int		is_space(char c);
 void	print_list(t_file *file);
 int		lenght_2star(char **s);
-void	del1node(t_file **file, int i);
+void	del1node(t_file **file);
 // get_data
 void	get_data(t_cub *cub);
 char	*get_pic(char *s, t_cub *cub, char *pic);
