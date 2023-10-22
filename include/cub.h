@@ -33,6 +33,14 @@ typedef struct s_value {
 	int	error;
 }	t_value;
 
+typedef struct s_map {
+	int		x;
+	int		y;
+	int		column;
+	char	**map;
+	char	direction;
+}	t_map;
+
 typedef struct s_cub {
 	t_file		*file;
 	t_value		*value;
@@ -42,10 +50,13 @@ typedef struct s_cub {
 	char		*south;
 	char		*west;
 	char		*east;
-	char		**map;
+	// char		**map;
+	t_map		*map;
 } t_cub;
 
+// init
 void	init_cub(t_cub *cub);
+void	int_val(t_value *value);
 // parser1
 int		check_file(char *s);
 void	verify_file(char *file, t_cub *cub);
@@ -54,23 +65,29 @@ void	get_file(char *s, t_cub *cub);
 void	print_2stars(char **s);
 void	del_2stars(char **s);
 char	*fah_strdup(char *s, char c);
+char	**fah_dup2stars(char **str);
 // utils 2
 void	print_data(t_cub *cub);
 int		check_null(char **s, int row);
 int		is_space(char c);
 void	print_list(t_file *file);
 int		lenght_2star(char **s);
-void	del1node(t_file **file, int i);
+void	del1node(t_file **file);
 // get_data
 void	get_data(t_cub *cub);
 char	*get_pic(char *s, t_cub *cub, char *pic);
+int		check_num(char *s);
+int		check_digit(char *s);
+void	add_rgb(t_color *color, int r, int g, int b);
+void	get_color(char *s, t_cub *cub, int mode);
+void	del_list2(t_cub *cub, int i);
 // fah split
 int		f_check_word(char *s);
 int		f_count_letter(char *s);
 char	*f_my_split(char *s);
 char	**fah_split(char *s);
 // map
-// void	get_map(char **str);
+
 // error
 void	error_false(t_cub *cub, char *s);
 void	del_list(t_file **file);
@@ -81,7 +98,9 @@ void	add_last(t_file **file, t_file *last);
 // check data
 void	check_data(t_cub *cub);
 int		check_path(char *s);
-void	get_color(char *s, t_cub *cub, int mode);
 void	check_data2(t_cub *cub, char *str);
+
+//get_map
+void	get_map(t_cub *cub);
 
 #endif

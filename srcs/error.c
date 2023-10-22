@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/15 15:44:31 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 00:20:35 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/22 15:51:32 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@ void	free_everyth(t_cub *cub)
 	if (cub->east)
 		free(cub->east);
 	if (cub->map)
-		del_2stars(cub->map);
+	{
+		del_2stars(cub->map->map);
+		free(cub->map);
+	}
 	free(cub->ceil);
 	free(cub->floor);
 }

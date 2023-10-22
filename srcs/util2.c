@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 15:09:05 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/21 01:48:31 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:01:45 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,25 +57,14 @@ int	lenght_2star(char **s)
 	return (i);
 }
 
-void	del1node(t_file **file, int i)
+void	del1node(t_file **file)
 {
 	t_file	*tmp;
-	t_file	*last;
-	t_file	*del;
 
+	if (*file == NULL)
+		return ;
 	tmp = *file;
-	last = NULL;
-	del = NULL;
-	while (tmp != NULL)
-	{
-		if (tmp->index == i)
-		{
-			del = tmp;
-			last = tmp->next;
-			break ;
-		}
-		tmp = tmp->next;
-	}
-	free(del);
-	tmp->next = last;
+	*file = tmp->next;
+	free(tmp->file);
+	free(tmp);
 }

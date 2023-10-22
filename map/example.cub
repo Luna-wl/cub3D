@@ -2,7 +2,7 @@ NO ./pic/1.txt
 SO ./pic/2.txt
 WE ./pic/3.txt
 EA ./pic/4.txt
-1
+
 F 220,100,0
 C 225,30,0
 

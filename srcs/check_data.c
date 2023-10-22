@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 15:06:57 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/20 21:10:33 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 15:05:15 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	check_data2(t_cub *cub, char *str)
 		cub->value->f++;
 	else if (s[0] && !ft_strncmp(s[0], "C", 2) && s[1] && lenght_2star(s) == 2)
 		cub->value->c++;
-	else if (s[0][0] != '1' && s[0][0] != '0' )
+	else if (s[0][0] != '1' && s[0][0] != '0')
 		cub->value->error++;
 	del_2stars(s);
 }

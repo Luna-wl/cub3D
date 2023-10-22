@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/20 15:33:50 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/18 15:02:03 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/21 14:38:59 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,5 +25,5 @@ int	main(int ac, char **av)
 		return (0);
 	init_cub(&cub);
 	verify_file(av[1], &cub);
-	free_everyth(&cub);
+	// free_everyth(&cub);
 }
