@@ -22,7 +22,8 @@ CFLAGS		= -Wall -Werror -Wextra -Imlx
 SRC_DIR		= ./srcs/
 
 MODULE1		=	main.c add_list.c check_data.c check_map.c error.c fah_split.c \
-				get_data.c get_map.c init.c parser1.c utils.c util2.c
+				get_data.c get_data2.c get_map.c init.c parser1.c utils.c \
+				util2.c get_map2.c
 
 # MODULE2		= process.c \
 # 				minimap.c \

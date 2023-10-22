@@ -74,20 +74,19 @@ void	print_list(t_file *file);
 int		lenght_2star(char **s);
 void	del1node(t_file **file);
 // get_data
+char	*get_pic(char **s, t_cub *cub, char *pic);
+void	get_color(char **s, t_cub *cub);
+void	del_list2(t_cub *cub, int i);
 void	get_data(t_cub *cub);
-char	*get_pic(char *s, t_cub *cub, char *pic);
+// get_data
 int		check_num(char *s);
 int		check_digit(char *s);
 void	add_rgb(t_color *color, int r, int g, int b);
-void	get_color(char *s, t_cub *cub, int mode);
-void	del_list2(t_cub *cub, int i);
 // fah split
 int		f_check_word(char *s);
 int		f_count_letter(char *s);
 char	*f_my_split(char *s);
 char	**fah_split(char *s);
-// map
-
 // error
 void	error_false(t_cub *cub, char *s);
 void	del_list(t_file **file);
@@ -96,11 +95,17 @@ void	free_everyth(t_cub *cub);
 t_file	*insert2list(char *str, t_file *file);
 void	add_last(t_file **file, t_file *last);
 // check data
-void	check_data(t_cub *cub);
 int		check_path(char *s);
 void	check_data2(t_cub *cub, char *str);
-
+void	check_data(t_cub *cub);
 //get_map
+void	po_start(t_map *map, t_cub *cub);
+void	flood_fill(int x, int y, char **map, t_cub *cub);
+void	check_map(t_cub *cub);
 void	get_map(t_cub *cub);
+//get_map2
+int		find_len(t_file *file);
+char	*dup_map2(char *s, char *new, int num);
+char	*dup_map(char *s);
 
 #endif
