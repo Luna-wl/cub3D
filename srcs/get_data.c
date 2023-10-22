@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 16:21:48 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/22 15:48:15 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/22 20:12:19 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,6 @@ void	get_data(t_cub *cub)
 {
 	t_file		*tmp;
 	char		**str;
-	static int	i = 0;
 
 	tmp = cub->file;
 	int_val(cub->value);
@@ -136,10 +135,9 @@ void	get_data(t_cub *cub)
 		else if (!ft_strncmp(str[0], "C", 2) && str[1])
 			get_color(str[1], cub, 1);
 		if (cub->value->c == 6)
-			return (del_2stars(str), del_list2(cub, i));
+			return (del_2stars(str), del_list2(cub, cub->value->n));
 		del_2stars(str);
 		tmp = tmp->next;
-		i++;
+		cub->value->n++;
 	}
-
 }
