@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:57:12 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/23 02:21:55 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/24 23:57:40 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,13 @@ void	po_start(t_map *map, t_cub *cub)
 
 int	check_wall(int x, int y, char **map)
 {
-	if ((map[y][x - 1] != '1' && map[y][x + 1] != '1' && map[y - 1][x] != '1' \
-	&& map[y + 1][x] != '1') || (map[y][x - 1] != '0' && map[y][x + 1] != '0' && \
-	map[y - 1][x] != '0' && map[y + 1][x] != '0'))
+	if (map[y][x - 1] != '1' && map[y][x - 1] != '0')
+		return (0);
+	else if (map[y][x + 1] != '1' && map[y][x + 1] != '0')
+		return (0);
+	else if (map[y - 1][x] != '1' && map[y - 1][x] != '0')
+		return (0);
+	else if (map[y + 1][x] != '1' && map[y + 1][x] != '0')
 		return (0);
 	return (1);
 }
@@ -60,14 +64,8 @@ void	flood_fill(int x, int y, char **map, t_cub *cub)
 	if (x < 0 || y < 0 || y > cub->map->column || x > row || \
 	map[y][x] == '1')
 		return ;
-	if (map[y][x] == '0')
-	{
-		if (check_wall(x, y, map) == 0)
-		{
-			printf("====\n");
-			cub->value->error++;
-		}
-	}
+	if (map[y][x] == '0' && !check_wall(x, y, map))
+		cub->value->error++;
 	map[y][x] = '1';
 	flood_fill(x - 1, y, map, cub);
 	flood_fill(x, y - 1, map, cub);
@@ -83,11 +81,9 @@ void	check_map(t_cub *cub)
 	new.x = cub->map->x;
 	new.y = cub->map->y;
 	new.map = fah_dup2stars(cub->map->map);
-	// printf("new.x = %d\n",new.x);
-	// printf("new.y = %d\n",new.y);
-	// printf("new.column = %d\n",new.column);
-	// printf("error = %d\n",cub->value->error);
 	flood_fill(new.x, new.y, new.map, cub);
+	if (cub->value->error != 0)
+		error_false(cub, "Error\nMap is not correct.");
 	print_2stars(new.map);
 	del_2stars(new.map);
 }
