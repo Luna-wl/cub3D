@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:57:12 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/22 20:53:15 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/23 02:21:55 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,23 +41,34 @@ void	po_start(t_map *map, t_cub *cub)
 	}
 }
 
+int	check_wall(int x, int y, char **map)
+{
+	if ((map[y][x - 1] != '1' && map[y][x + 1] != '1' && map[y - 1][x] != '1' \
+	&& map[y + 1][x] != '1') || (map[y][x - 1] != '0' && map[y][x + 1] != '0' && \
+	map[y - 1][x] != '0' && map[y + 1][x] != '0'))
+		return (0);
+	return (1);
+}
+
 void	flood_fill(int x, int y, char **map, t_cub *cub)
 {
 	int	row;
 
-	row = ft_strlen(map[y]);
-	printf("y = %d\n", y);
-	printf("x = %d\n", x);
-	printf("row = %d\n", row);
+	row = ft_strlen(map[y]) - 1;
 	if (map == NULL)
 		return ;
-	if (x < 0 || y < 0 || y > cub->map->column || x > row)
+	if (x < 0 || y < 0 || y > cub->map->column || x > row || \
+	map[y][x] == '1')
 		return ;
-	if (is_space(map[y][x]))
-		map[y][x] = '2';
+	if (map[y][x] == '0')
+	{
+		if (check_wall(x, y, map) == 0)
+		{
+			printf("====\n");
+			cub->value->error++;
+		}
+	}
 	map[y][x] = '1';
-	// print_2stars(map);
-	// exit(0);
 	flood_fill(x - 1, y, map, cub);
 	flood_fill(x, y - 1, map, cub);
 	flood_fill(x + 1, y, map, cub);
@@ -68,7 +79,6 @@ void	check_map(t_cub *cub)
 {
 	t_map	new;
 
-	// print_2stars(cub->map->map);
 	po_start(cub->map, cub);
 	new.x = cub->map->x;
 	new.y = cub->map->y;
@@ -89,7 +99,7 @@ void	get_map(t_cub *cub)
 	t_file	*tmp;
 
 	len = find_len(cub->file);
-	cub->map->column = len;
+	cub->map->column = len - 1;
 	cub->map->map = malloc(sizeof(char *) * (len + 1));
 	if (!cub->map->map)
 		return ;
