@@ -6,7 +6,7 @@
 /*   By: wluedara <wluedara@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:57:12 by wluedara          #+#    #+#             */
-/*   Updated: 2023/10/24 23:57:40 by wluedara         ###   ########.fr       */
+/*   Updated: 2023/10/25 16:16:53 by wluedara         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,9 @@ void	flood_fill(int x, int y, char **map, t_cub *cub)
 		return ;
 	if (map[y][x] == '0' && !check_wall(x, y, map))
 		cub->value->error++;
+	if (map[y][x] == 'N' || map[y][x] == 'S' || map[y][x] == 'W' || \
+	map[y][x] == 'E')
+		cub->value->s++;
 	map[y][x] = '1';
 	flood_fill(x - 1, y, map, cub);
 	flood_fill(x, y - 1, map, cub);
@@ -82,7 +85,7 @@ void	check_map(t_cub *cub)
 	new.y = cub->map->y;
 	new.map = fah_dup2stars(cub->map->map);
 	flood_fill(new.x, new.y, new.map, cub);
-	if (cub->value->error != 0)
+	if (cub->value->error != 0 || cub->value->s != 1)
 		error_false(cub, "Error\nMap is not correct.");
 	print_2stars(new.map);
 	del_2stars(new.map);
